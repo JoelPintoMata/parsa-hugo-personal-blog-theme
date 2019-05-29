@@ -13,7 +13,7 @@
               <div class="card-content">
                 <p class="text-uppercase">{{.Params.Categories}}</p>
                 <h4 class="card-title mb-4"><a class="text-white" href="{{.Permalink}}">{{.Title}}</a></h4>
-                <a class="btn btn-outline-light" href="{{.Permalink}}">read more</a>
+                <a class="btn btn-outline-light" href="{{.Permalink}}">see more</a>
               </div>
             </div>
           </article>
@@ -23,8 +23,31 @@
     </div>
   </section>
   <!-- /featured post -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h3 class="mb-4">{{.Params.Sub }}</h3>
+          <img src="{{.Params.Image | absURL }}" alt="{{.Site.Params.author}}" class="img-fluid w-100 mb-4">
+          <h2 class="mb-4">{{.Title }}</h2>
+          {{ .Content }}
+          <form action="{{ .Site.Params.contactFormAction }}" method="get" enctype="text/plain" class="row mt-5">
+            <div class="col-lg-6">
+              <input type="subject" class="form-control mb-4" name="subject" id="name" placeholder="Subject">
+            </div>
+            <div class="col-12">
+              <textarea name="body" id="bodu" class="form-control mb-4" placeholder="Message..."></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <!-- blog post -->
+    <!-- blog post -->
   <section class="section">
     <div class="container">
       <div class="row masonry-container">

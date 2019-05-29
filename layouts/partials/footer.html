@@ -8,8 +8,8 @@
         <div class="col-md-3 col-sm-6 mb-4 mb-md-0">
           <h6>Address</h6>
           <ul class="list-unstyled">
-            {{ range .Site.Params.footer.addresses}}
-            <li class="font-secondary text-dark">{{.address}}</li>
+            {{ range .Site.Params.footer.addresses }}
+            <li class="font-secondary text-dark">{{.address | safeHTML}}</li>
             {{ end }}
           </ul>
         </div>
@@ -17,7 +17,7 @@
           <h6>Contact Info</h6>
           <ul class="list-unstyled">
             {{ range .Site.Params.footer.contacts}}
-            <li class="font-secondary text-dark">{{.contactInfo}}</li>
+            <li class="font-secondary text-dark">{{.contactInfo | safeHTML}}</li>
             {{ end }}
           </ul>
         </div>
@@ -37,11 +37,10 @@
     document.write(CurrentYear)</script> {{.Site.Params.copyright | markdownify}}</p>
   </div>
 </footer>
-
 {{ $script:= "script" }}
 {{ $scriptTag:= "<" }}
 {{$scriptTag | safeHTML }}{{$script}} type="text/javascript">
-  
+
   {{ $.Scratch.Set "counter" 0 }}
   {{ range .Site.Params.plugins.css }}
   {{ $.Scratch.Set "counter" (add ($.Scratch.Get "counter") 1) }}
